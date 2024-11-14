@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WellNest</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <a href="{{ url_for('index') }}" class="text-xl font-bold text-gray-800">WellNest</a>
+            <ul class="flex space-x-4">
+                <li><a href="{{ url_for('tests') }}" class="text-gray-700 hover:text-gray-900">Tests</a></li>
+                <li><a href="{{ url_for('tips') }}" class="text-gray-700 hover:text-gray-900">Tips</a></li>
+                <li><a href="{{ url_for('profile') }}" class="text-gray-700 hover:text-gray-900">Profile</a></li>
+                <li><a href="{{ url_for('login') }}" class="text-gray-700 hover:text-gray-900">Login</a></li>
+                <li><a href="{{ url_for('register') }}" class="text-gray-700 hover:text-gray-900">Register</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mx-auto px-4 py-8">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

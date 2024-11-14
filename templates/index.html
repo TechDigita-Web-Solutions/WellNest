@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="min-h-screen flex flex-col items-center justify-center bg-gray-100">
+        <div class="text-center">
+            <h1 class="text-4xl font-bold mb-4 text-gray-800">Welcome to WellNest</h1>
+            <p class="text-lg text-gray-600 mb-4">Your mental health matters. Explore our resources and take the first step towards a healthier mind.</p>
+            <p class="text-lg text-gray-600 mb-4">Check out our <a href="{{ url_for('tests') }}" class="text-blue-500 hover:underline">Tests</a> to understand your mental health better.</p>
+            <p class="text-lg text-gray-600">Read our <a href="{{ url_for('tips') }}" class="text-blue-500 hover:underline">Tips</a> for maintaining a healthy mind.</p>
+        </div>
+    </div>
+{% endblock %}
