@@ -14,8 +14,13 @@
                 <li><a href="{{ url_for('tests') }}" class="text-gray-700 hover:text-gray-900">Tests</a></li>
                 <li><a href="{{ url_for('tips') }}" class="text-gray-700 hover:text-gray-900">Tips</a></li>
                 <li><a href="{{ url_for('profile') }}" class="text-gray-700 hover:text-gray-900">Profile</a></li>
-                <li><a href="{{ url_for('login') }}" class="text-gray-700 hover:text-gray-900">Login</a></li>
-                <li><a href="{{ url_for('register') }}" class="text-gray-700 hover:text-gray-900">Register</a></li>
+                {% if session.get('user') %}
+                    <li class="text-gray-700">Welcome, {{ session.get('user') }}</li>
+                    <li><a href="{{ url_for('logout') }}" class="text-gray-700 hover:text-gray-900">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}" class="text-gray-700 hover:text-gray-900">Login</a></li>
+                    <li><a href="{{ url_for('register') }}" class="text-gray-700 hover:text-gray-900">Register</a></li>
+                {% endif %}
             </ul>
         </div>
     </nav>

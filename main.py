@@ -1,9 +1,12 @@
-from flask import Flask, request, render_template, redirect, url_for, flash
+from flask import Flask, request, render_template, redirect, url_for, flash, session
 from modules.user_db_insert import insert_user
 from modules.user_auth import authenticate_user
+from modules.auth import auth_bp
+import sqlite3
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
+app.register_blueprint(auth_bp)
 
 @app.route('/')
 def index():
@@ -19,7 +22,15 @@ def tips():
 
 @app.route('/profile')
 def profile():
-    return render_template('profile.html')
+    if 'user' in session:
+        conn = sqlite3.connect('wellnest.db')
+        cursor = conn.cursor()
+        cursor.execute('SELECT * FROM users WHERE username = ?', (session['user'],))
+        user = cursor.fetchone()
+        conn.close()
+        return render_template('profile.html', user=user)
+    else:
+        return redirect(url_for('auth_bp.login'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -27,11 +38,19 @@ def login():
         username = request.form['username']
         password = request.form['password']
         if authenticate_user(username, password):
+            ststic_info(username)
+            session['user'] = username
             flash('Login successful!', 'success')
-            return redirect(url_for('profile'))
+            return redirect(url_for('index'))
         else:
             flash('Invalid username or password', 'danger')
     return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    session.pop('user', None)
+    flash('You have been logged out.', 'success')
+    return redirect(url_for('index'))
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -53,6 +72,11 @@ def register():
         insert_user(user_data)
         return redirect(url_for('register'))
     return render_template('register.html')
+
+
+def ststic_info(username):
+    current_username = username
+    return current_username
 
 if __name__ == '__main__':
     app.run(debug=True)

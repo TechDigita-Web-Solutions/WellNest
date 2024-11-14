@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-xl">
+        <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">User Profile</h2>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-gray-700">Username</label>
+                <p>{{ user['username'] }}</p>
+            </div>
+            <div>
+                <label class="block text-gray-700">Full Name</label>
+                <p>{{ user['Name'] }}</p>
+            </div>
+            <div>
+                <label class="block text-gray-700">Age</label>
+                <p>{{ user['Age'] }}</p>
+            </div>
+            <div>
+                <label class="block text-gray-700">Gender</label>
+                <p>{{ user['gender'] }}</p>
+            </div>
+            <div>
+                <label class="block text-gray-700">Email</label>
+                <p>{{ user['email'] }}</p>
+            </div>
+            <div>
+                <label class="block text-gray-700">Phone</label>
+                <p>{{ user['phone'] }}</p>
+            </div>
+            <div>
+                <label class="block text-gray-700">Address</label>
+                <p>{{ user['address'] }}</p>
+            </div>
+            <div>
+                <label class="block text-gray-700">City</label>
+                <p>{{ user['city'] }}</p>
+            </div>
+            <div>
+                <label class="block text-gray-700">State</label>
+                <p>{{ user['state'] }}</p>
+            </div>
+            <div>
+                <label class="block text-gray-700">ZIP Code</label>
+                <p>{{ user['zip'] }}</p>
+            </div>
+            <div>
+                <label class="block text-gray-700">Country</label>
+                <p>{{ user['country'] }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
