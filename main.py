@@ -3,6 +3,7 @@ from modules.user_db_insert import insert_user
 from modules.user_auth import authenticate_user
 from modules.auth import auth_bp
 import sqlite3
+from data.tips import tips as tipsdata
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
@@ -18,7 +19,8 @@ def tests():
 
 @app.route('/tips')
 def tips():
-    return render_template('tips.html')
+    print(tipsdata)
+    return render_template('tips.html', tipsdata=tipsdata)
 
 @app.route('/profile')
 def profile():
