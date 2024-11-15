@@ -1,53 +1,61 @@
 {% extends "base.html" %}
 
 {% block content %}
+<style>
+    p{
+        display: inline-block;
+        margin: auto;
+        position: absolute;
+        right: 2rem;
+    }
+</style>
 <div class="min-h-screen flex items-center justify-center">
-    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-xl">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-xl" style="position: relative;">
         <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">User Profile</h2>
-        <div class="space-y-4">
+        <div class="space-y-4" >
             <div>
-                <label class="block text-gray-700">Username</label>
-                <p>{{ user['username'] }}</p>
+                <label class="text-gray-700">Username</label>
+                <p>{{ user[0] }}</p>
             </div>
             <div>
-                <label class="block text-gray-700">Full Name</label>
-                <p>{{ user['Name'] }}</p>
+                <label class="text-gray-700">Full Name</label>
+                <p>{{ user[2] }}</p>
             </div>
             <div>
-                <label class="block text-gray-700">Age</label>
-                <p>{{ user['Age'] }}</p>
+                <label class=" text-gray-700">Age</label>
+                <p>{{ user[3] }}</p>
             </div>
             <div>
-                <label class="block text-gray-700">Gender</label>
-                <p>{{ user['gender'] }}</p>
+                <label class=" text-gray-700">Gender</label>
+                <p>{{ user[4] }}</p>
             </div>
             <div>
-                <label class="block text-gray-700">Email</label>
-                <p>{{ user['email'] }}</p>
+                <label class="text-gray-700">Email</label>
+                <p>{{ user[5] }}</p>
             </div>
             <div>
-                <label class="block text-gray-700">Phone</label>
-                <p>{{ user['phone'] }}</p>
+                <label class="text-gray-700">Phone</label>
+                <p>{{ user[5] }}</p>
             </div>
             <div>
-                <label class="block text-gray-700">Address</label>
-                <p>{{ user['address'] }}</p>
+                <label class="text-gray-700">Address</label>
+                <p>{{ user[6] }}</p>
             </div>
             <div>
-                <label class="block text-gray-700">City</label>
-                <p>{{ user['city'] }}</p>
+                <label class="text-gray-700">City</label>
+                <p>{{ user[7] }}</p>
             </div>
             <div>
-                <label class="block text-gray-700">State</label>
-                <p>{{ user['state'] }}</p>
+                <label class="text-gray-700">State</label>
+                <p>{{ user[8] }}</p>
             </div>
             <div>
-                <label class="block text-gray-700">ZIP Code</label>
-                <p>{{ user['zip'] }}</p>
+                <label class="text-gray-700">ZIP Code</label>
+                <p>{{ user[9] }}</p>
             </div>
             <div>
-                <label class="block text-gray-700">Country</label>
-                <p>{{ user['country'] }}</p>
+                <label class="text-gray-700">Country</label>
+                <p>{{ user[10] }}</p>
             </div>
         </div>
     </div>

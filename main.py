@@ -30,6 +30,7 @@ def profile():
         cursor.execute('SELECT * FROM users WHERE username = ?', (session['user'],))
         user = cursor.fetchone()
         conn.close()
+        print(user)
         return render_template('profile.html', user=user)
     else:
         return redirect(url_for('auth_bp.login'))
