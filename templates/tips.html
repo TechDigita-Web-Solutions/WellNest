@@ -1,14 +1,23 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="index-container" style="text-align: center; display: flex; flex-wrap: wrap; justify-content: space-evenly; align-items: center;">
+
+<style>
+    .card-img-top:hover{
+        cursor: pointer;
+        transform: scale(1.025);
+        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.45);
+    }
+</style>
+
+    <div class="index-container" style=" margin: 3rem 0 0 0; text-align: center; display: flex; flex-wrap: wrap; justify-content: space-evenly; align-items: center; transition: transform 0.2s ease-in-out;">
         {% for tip in tipsdata %}
-        <a class="card-link" href="#">
-            <div class="card" style="width: 17rem; margin: 1rem 0.3rem 0.5rem 0;">
-                <img src="{{ tip.img }}" class="card-img-top" alt="">
+        <a class="card-link" >
+            <div class="card" style="width: 14.25rem; height:22rem; margin: 2rem 0.3rem 0.5rem 0; ">
+                <img src="{{ tip.img }}" class="card-img-top" alt="" style="height: 20rem; border-radius: 10px; box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.45);" >
                 <div class="card-img-overlay"></div>
                 <div class="card-body">
-                    <p class="index-level-id" style="text-decoration: none !important; text-align: center; font-size: 1.5rem !important;">
+                    <p class="index-level-id" style=" margin: 1rem 0 0 0; text-decoration: none !important; text-align: center; font-size: 1.5rem !important;">
                         {{ tip.title }}
                     </p>
                 </div>
